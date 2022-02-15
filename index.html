@@ -1,0 +1,50 @@
+    <!DOCTYPE html>
+
+    <head>
+        <title>Scale Factor Calculator</title>
+    </head>
+
+    <body>
+        <h2>Scale: 1/2" = 1'</h2>
+        <div id="div">
+            <p id="0">Scaled Dimension:  </p>
+            <input id="input" oninput="calculate(this.value)"></input>
+            <p id="1">in</p>
+        </div>
+        <h3>Result</h3>
+        <p class="result" id="result1">0 ft 0 in</p>
+        <p class="result" id="result2">0 in</p>
+        <p id="bottom">Made by Nicolas Baror for the THEA 472 Circuiting Project</p>
+        <p>View the code on <a href="https://github.com/nicnacnic/inches-scale-factor-calculator">GitHub</a></p>
+        <script>
+            function calculate(data) {
+                data *= 24;
+                let feet = Math.floor(data / 12);
+                let inches = (data - (feet * 12))
+                document.getElementById("result1").innerHTML = `${+feet.toFixed(3)} ft ${+inches.toFixed(3)} in`;
+                document.getElementById("result2").innerHTML = `${+data.toFixed(3)} in`
+            }
+        </script>
+        <style>
+            #div {
+                display: flex;
+                width: 100%;
+                height: 26px;
+                align-items: center;
+            }
+            #input {
+            width: 100px;
+                height: 26px;
+                margin: 0 5px;
+            }
+            #0 {
+            vertical-align: middle;
+            }
+            #1 {
+            vertical-align: middle;
+            }
+            .result {
+            margin: 4px 0;
+            }
+        </style>
+    </body>
